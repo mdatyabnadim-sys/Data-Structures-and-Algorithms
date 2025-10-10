@@ -1,4 +1,5 @@
-    isPalindromeoolean isPalindrome(int x) {
+class isPalindrome{
+    public static boolean isPalindrom(int x) {
         int rev=0;
         int original=x;
         if(x>=0){
@@ -19,6 +20,7 @@
         }
         
     }
+}
 
     
 
