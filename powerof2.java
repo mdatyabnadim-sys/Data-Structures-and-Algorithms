@@ -1,4 +1,4 @@
-class powerof2 {
+class powerof2a {
     public boolean isPowerOfTwo(int n) {
         for(int i=0;i<32;i++){
             if(Math.pow(2,i)==n) {
