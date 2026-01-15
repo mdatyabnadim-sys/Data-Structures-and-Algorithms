@@ -18,4 +18,5 @@ class Largest_number_at_least_twice_of_others{
         if(a==true) return idx; // when the max is greater than twice of every other element of the array
         return -1; // when the condition stated in question is false for max
     }
+
 }
