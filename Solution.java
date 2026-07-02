@@ -1,13 +1,21 @@
-class Leetcode153 {
-    public int findMin(int[] nums) {
-        int n=nums.length;
-        int lo=0;
-        int hi=n-1;
-        while(lo<hi){
-            int mid= lo + (hi-lo)/2;
-            if(nums[mid]>nums[hi]) lo=mid+1;
-            else hi=mid;
+package Strings;
+class Solution {
+    public String sortVowels(String s) {
+        char[] arr=s.toCharArray();
+        char[] vow=new char[s.length()];
+        int idx=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]== 'A' || arr[i]== 'E' || arr[i]== 'I' || arr[i]== 'O' || arr[i]== 'U' || arr[i]== 'a' || arr[i]== 'e' || arr[i]== 'i' || arr[i]== 'o' || arr[i]== 'u'){
+               vow[idx++]=arr[i];
+            }
         }
-        return nums[lo]; // we can also return nums[hi]
+        Arrays.sort(vow,0,idx);
+        idx=0;
+         for(int i=0;i<arr.length;i++){
+            if(arr[i]== 'A' || arr[i]== 'E' || arr[i]== 'I' || arr[i]== 'O' || arr[i]== 'U' || arr[i]== 'a' || arr[i]== 'e' || arr[i]== 'i' || arr[i]== 'o' || arr[i]== 'u'){
+               arr[i]=vow[idx++];
+            }
+        }
+        return new String(arr);
     }
 }
