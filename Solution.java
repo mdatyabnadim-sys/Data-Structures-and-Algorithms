@@ -1,21 +1,43 @@
-package Strings;
-class Solution {
-    public String sortVowels(String s) {
-        char[] arr=s.toCharArray();
-        char[] vow=new char[s.length()];
-        int idx=0;
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]== 'A' || arr[i]== 'E' || arr[i]== 'I' || arr[i]== 'O' || arr[i]== 'U' || arr[i]== 'a' || arr[i]== 'e' || arr[i]== 'i' || arr[i]== 'o' || arr[i]== 'u'){
-               vow[idx++]=arr[i];
-            }
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int lengthA=0;
+        int lengthB=0;
+        ListNode tempA=headA;
+        ListNode tempB=headB;
+        while(tempA!=null){
+            lengthA++;
+            tempA=tempA.next;
         }
-        Arrays.sort(vow,0,idx);
-        idx=0;
-         for(int i=0;i<arr.length;i++){
-            if(arr[i]== 'A' || arr[i]== 'E' || arr[i]== 'I' || arr[i]== 'O' || arr[i]== 'U' || arr[i]== 'a' || arr[i]== 'e' || arr[i]== 'i' || arr[i]== 'o' || arr[i]== 'u'){
-               arr[i]=vow[idx++];
-            }
+          while(tempB!=null){
+            lengthB++;
+            tempB=tempB.next;
         }
-        return new String(arr);
+        tempA=headA;
+        tempB=headB;
+        int length=0;
+        if(lengthA>=lengthB) length=lengthA-lengthB;
+        else length=lengthB-lengthA;
+
+        for(int i=1;i<=length;i++){
+            if(lengthA>=lengthB) tempA=tempA.next;
+            else tempB=tempB.next;
+        }
+
+        while(tempA!=tempB){
+            tempA=tempA.next;
+            tempB=tempB.next;
+        }
+        return tempA;
     }
 }
